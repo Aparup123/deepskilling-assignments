@@ -1,0 +1,21 @@
+DECLARE
+    NAME CUSTOMERS.NAME%TYPE;
+    AGE  CUSTOMERS.AGE%TYPE;
+    RATE CUSTOMERS.RATE%TYPE;
+    CURSOR CC IS SELECT NAME, AGE, RATE FROM CUSTOMERS FOR UPDATE;
+BEGIN
+    OPEN CC;
+    LOOP
+        FETCH CC INTO NAME, AGE, RATE;
+        EXIT WHEN CC%NOTFOUND;
+        IF AGE >= 60 THEN
+            DBMS_OUTPUT.PUT_LINE('Changing loan rate of ' || NAME);
+            UPDATE CUSTOMERS
+            SET
+                RATE = RATE - 1
+            WHERE
+                CURRENT OF CC;
+        END IF;
+    END LOOP;
+    CLOSE CC;
+END;
