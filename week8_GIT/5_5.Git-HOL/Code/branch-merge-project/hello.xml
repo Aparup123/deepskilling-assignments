@@ -1,0 +1,14 @@
+<books>
+	<book category="non-fiction">
+    	<title lang="en">Sapiens</title>
+    	<author>Yuval Noah Harari</author>
+    	<year>2014</year>
+    	<price>15.50</price>
+	</book>
+	<book category="fiction">
+    	<title lang="en">The Great Gatsby</title>
+    	<author>F. Scott Fitzgerald</author>
+    	<year>1925</year>
+    	<price>12.99</price>
+ 	</book>
+</books>
